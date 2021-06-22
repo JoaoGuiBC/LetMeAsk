@@ -1,11 +1,11 @@
-import React from 'react';
+import { ButtonHTMLAttributes } from "react";
 
-type ButtonProps = {
-  text: string,
-}
+import '../styles/components/button.scss';
 
-export const Button: React.FC<ButtonProps> = ({ text }) => {
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
+
+export const Button: React.FC<ButtonProps> = (props) => {
   return (
-    <button>{text}</button>
+    <button className="button" {...props} />
   );
 }
