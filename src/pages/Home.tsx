@@ -1,4 +1,6 @@
 import { useState, FormEvent } from 'react';
+import { ToastContainer, toast, Zoom } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 import { useHistory } from 'react-router-dom';
 
 import { useAuth } from '../hooks/useAuth';
@@ -36,7 +38,8 @@ export const Home: React.FC = () => {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert('Sala não existente');
+      toast.error('Esta sala não existe');
+
       return;
     }
 
@@ -45,6 +48,18 @@ export const Home: React.FC = () => {
   
   return (
     <div id="page-auth">
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        pauseOnHover
+        limit={3}
+        transition={Zoom}
+      />
+
       <aside>
         <img
           src={illustrationImg}
