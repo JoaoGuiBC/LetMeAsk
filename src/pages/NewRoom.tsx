@@ -31,7 +31,7 @@ export const NewRoom: React.FC = () => {
       authorId: user?.id,
     });
 
-    history.push(`rooms/${firebaseRoom.key}`);
+    history.push(`/rooms/${firebaseRoom.key}`);
   }
 
   return (
