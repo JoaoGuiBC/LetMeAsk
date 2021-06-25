@@ -8,7 +8,7 @@ type QuestionProps = {
   }
 }
 
-export const Question: React.FC<QuestionProps> = ({ author, content }) => {
+export const Question: React.FC<QuestionProps> = ({ author, content, children }) => {
   return (
     <div className="question">
       <p>{content}</p>
@@ -17,7 +17,7 @@ export const Question: React.FC<QuestionProps> = ({ author, content }) => {
           <img src={author.avatar} alt={author.name} />
           <span>{author.name}</span>
         </div>
-        <div></div>
+        <div>{children}</div>
       </footer>
     </div>
   );
