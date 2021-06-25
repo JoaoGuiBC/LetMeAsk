@@ -43,6 +43,12 @@ export const Home: React.FC = () => {
       return;
     }
 
+    if (roomRef.val().endedAt) {
+      toast.error('Esta sala já foi fechada');
+
+      return;
+    }
+
     history.push(`/rooms/${roomCode}`);
   }
   
